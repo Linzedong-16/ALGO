@@ -1,13 +1,12 @@
 /**
- *
+ *  采用中心扩散的思想
  * @param {string} s
- * @returns
+ * @returns {string} subString
  */
 var longestPalindrome = function (s) {
-  if (s.lenght < 2) return s;
+  if (s.length < 2) return s;
   let start = 0;
   let maxLength = 1;
-
   function expandAroundCenter(left, right) {
     while (left >= 0 && right <= s.length && s[left] === s[right]) {
       if (right - left + 1 > maxLength) {
