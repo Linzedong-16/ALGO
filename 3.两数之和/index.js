@@ -1,5 +1,5 @@
 /**
- * 两数详解等于target
+ * 两数相加等于target
  * @param {Array<number>} nums
  * @param {number} target
  * @returns {Array<number>} result
@@ -11,7 +11,7 @@ var twoSum = function (nums, target) {
     if (map.has(complement)) {
       return [map.get(complement), index];
     } else {
-      map.set(nums[index], index);
+      map.set(nums[index], index); // 计算的值作为Map索引,将数组的索引作为Map的值
     }
   }
   return [];

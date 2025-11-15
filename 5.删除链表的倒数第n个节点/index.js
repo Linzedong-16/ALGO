@@ -29,40 +29,31 @@ function linkedListToArray(head) {
   return result;
 }
 
-const l1 = createLinkedList([2, 4, 3]);
-const l2 = createLinkedList([7, 0, 8]);
+var head = createLinkedList([1, 2, 3, 4, 5]);
 
 /**
- *
- * @param {ListNode} l1
- * @param {ListNode} l2
- * @returns {ListNode} list
+ * 一次遍历完成倒序删除
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
  */
-var addTwoNumbers = function (l1, l2) {
-  let dummy = new ListNode(); // 链表头
-  let curr = dummy; // 指针
-  let carry = 0; // 进位
-  while (l1 !== null || l2 !== null) {
-    let sum = 0;
-    if (l1 !== null) {
-      sum += l1.val;
-      l1 = l1.next;
-    }
-    if (l2 !== null) {
-      sum += l2.val;
-      l2 = l2.next;
-    }
-    sum += carry;
-    curr.next = new ListNode(sum % 10);
-    carry = Math.floor(sum / 10);
-    curr = curr.next;
+var removeNthFromEnd = function (head, n) {
+  // 0号节点
+  const dummy = new ListNode();
+  dummy.next = head;
+  let pre = dummy,
+    last = dummy;
+  for (let i = 0; i < n; i++) {
+    last = last.next;
   }
-  if (carry > 0) {
-    curr.next = new ListNode(carry);
+  while (last.next !== null) {
+    pre = pre.next;
+    last = last.next;
   }
+  pre.next = pre.next.next;
   return dummy.next;
 };
 
-const l3 = addTwoNumbers(l1, l2);
+let node = removeNthFromEnd(head, 2);
 
-console.log(linkedListToArray(l3));
+console.log(linkedListToArray(node));
