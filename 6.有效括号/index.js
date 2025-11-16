@@ -7,7 +7,7 @@ var isValid = function (codeStr) {
   mappings.set("(", ")");
   mappings.set("[", "]");
   mappings.set("{", "}");
-  const stack = [];
+  const stack = []; // 只存储 ) } ]
   for (const char of codeStr) {
     if (mappings.has(char)) {
       stack.push(mappings.get(char));
