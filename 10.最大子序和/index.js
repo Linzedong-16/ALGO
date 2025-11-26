@@ -14,7 +14,25 @@ var maxSubArray = (num) => {
   }
   return max;
 };
-
 const num = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+
+// console.log(maxSubArray(num));
+/**
+ * 动态规划典型思路二：自顶向下,有递归开销
+ * @param {Array<number>} num
+ * @returns {number} max
+ */
+var maxSubArray = (num) => {
+  const memo = Array(num.length).fill(undefined);
+
+  const dp = (i) => {
+    if (i === 0) return (memo[i] = num[0]);
+    // if (memo[i] !== undefined) return memo[i]; // 某次的递归可能
+    memo[i] = Math.max(dp(i - 1) + num[i], num[i]);
+    return memo[i];
+  };
+  dp(num.length - 1);
+  return Math.max(...memo);
+};
 
 console.log(maxSubArray(num));
