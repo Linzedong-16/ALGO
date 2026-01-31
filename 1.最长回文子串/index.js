@@ -3,8 +3,10 @@
  * @param {string} s
  * @returns {string} subString
  */
-var longestPalindrome = function (s) {
-  if (s.length < 2) return s;
+const longestPalindrome = function (s) {
+  if (s.length < 2) {
+    return s;
+  }
   let start = 0; // 记录切片起始位置
   let maxLength = 1; // 记录切片长度
   function expandAroundCenter(left, right) {
@@ -25,4 +27,4 @@ var longestPalindrome = function (s) {
   return s.slice(start, start + maxLength);
 };
 
-console.log(longestPalindrome("aansdsa"));
+console.log(longestPalindrome('aansdsa'));
