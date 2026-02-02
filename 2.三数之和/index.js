@@ -3,7 +3,7 @@
  * @param {Array<number>} nums
  * @returns {Array<Array<number>>} res
  */
-var threeSum = function (nums) {
+const threeSum = function (nums) {
   const res = [];
   nums.sort((a, b) => a - b); // 关键条件:先排序
   for (let i = 0; i < nums.length - 2; i++) {
