@@ -4,7 +4,7 @@
  * @param {number} target
  * @returns {Array<number>} result
  */
-var twoSum = function (nums, target) {
+const twoSum = function (nums, target) {
   const map = new Map();
   for (let index = 0; index < nums.length; index++) {
     const complement = target - nums[index];
