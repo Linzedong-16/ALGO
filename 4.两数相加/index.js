@@ -1,14 +1,18 @@
 // 单链表节点构造函数
-function ListNode(val, next) {
-  // 节点值，默认为 0（兼容未传值的情况）
-  this.val = val === undefined ? 0 : val;
-  // 指向下一个节点的指针，默认为 null
-  this.next = next === undefined ? null : next;
+class ListNode {
+  constructor(val, next) {
+    // 节点值，默认为 0（兼容未传值的情况）
+    this.val = val === undefined ? 0 : val;
+    // 指向下一个节点的指针，默认为 null
+    this.next = next === undefined ? null : next;
+  }
 }
 
 // 辅助函数：根据数组快速创建链表（可选，用于测试时构造输入用例）
 function createLinkedList(arr) {
-  if (arr.length === 0) return null;
+  if (arr.length === 0) {
+    return null;
+  }
   const head = new ListNode(arr[0]);
   let current = head;
   for (let i = 1; i < arr.length; i++) {
@@ -38,8 +42,8 @@ const l2 = createLinkedList([7, 0, 8]);
  * @param {ListNode} l2
  * @returns {ListNode} list
  */
-var addTwoNumbers = function (l1, l2) {
-  let dummy = new ListNode(); // 链表头
+const addTwoNumbers = function (l1, l2) {
+  const dummy = new ListNode(); // 链表头
   let curr = dummy; // 指针
   let carry = 0; // 进位
   while (l1 !== null || l2 !== null) {
