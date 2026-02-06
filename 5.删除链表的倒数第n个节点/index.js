@@ -8,7 +8,9 @@ function ListNode(val, next) {
 
 // 辅助函数：根据数组快速创建链表（可选，用于测试时构造输入用例）
 function createLinkedList(arr) {
-  if (arr.length === 0) return null;
+  if (arr.length === 0) {
+    return null;
+  }
   const head = new ListNode(arr[0]);
   let current = head;
   for (let i = 1; i < arr.length; i++) {
@@ -29,7 +31,7 @@ function linkedListToArray(head) {
   return result;
 }
 
-var head = createLinkedList([1, 2, 3, 4, 5]);
+const head = createLinkedList([1, 2, 3, 4, 5]);
 
 /**
  * 一次遍历完成倒序删除
@@ -37,7 +39,7 @@ var head = createLinkedList([1, 2, 3, 4, 5]);
  * @param {number} n
  * @return {ListNode}
  */
-var removeNthFromEnd = function (head, n) {
+const removeNthFromEnd = function (head, n) {
   // 0号节点
   const dummy = new ListNode();
   dummy.next = head;
@@ -54,6 +56,6 @@ var removeNthFromEnd = function (head, n) {
   return dummy.next;
 };
 
-let node = removeNthFromEnd(head, 2);
+const node = removeNthFromEnd(head, 2);
 
 console.log(linkedListToArray(node));
