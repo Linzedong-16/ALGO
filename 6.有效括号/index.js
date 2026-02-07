@@ -2,11 +2,11 @@
  *
  * @param {string} codeStr
  */
-var isValid = function (codeStr) {
+const isValid = function (codeStr) {
   const mappings = new Map();
-  mappings.set("(", ")");
-  mappings.set("[", "]");
-  mappings.set("{", "}");
+  mappings.set('(', ')');
+  mappings.set('[', ']');
+  mappings.set('{', '}');
   const stack = []; // 只存储 ) } ]
   for (const char of codeStr) {
     if (mappings.has(char)) {
@@ -22,4 +22,4 @@ var isValid = function (codeStr) {
   return stack.length === 0;
 };
 
-console.log(isValid("(()){}{{{{{{"));
+console.log(isValid('(()){}{{{{{{'));
