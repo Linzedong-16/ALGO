@@ -7,7 +7,7 @@ const l2 = createLinkedList([1, 2, 4, 7, 21]);
  * @param {ListNode} l2
  * @returns {ListNode}
  */
-var mergeTwoList = function (l1, l2) {
+const mergeTwoList = function (l1, l2) {
   let curr = new ListNode();
   const dummy = curr;
   // 对齐节点添加
@@ -43,7 +43,9 @@ function ListNode(val, next) {
 
 // 辅助函数：根据数组快速创建链表（可选，用于测试时构造输入用例）
 function createLinkedList(arr) {
-  if (arr.length === 0) return null;
+  if (arr.length === 0) {
+    return null;
+  }
   const head = new ListNode(arr[0]);
   let current = head;
   for (let i = 1; i < arr.length; i++) {
