@@ -3,13 +3,13 @@
  * @param {ListNode} head
  * @returns {ListNode}
  */
-var swapParis = function (head) {
-  let dummy = new ListNode();
+const swapParis = function (head) {
+  const dummy = new ListNode();
   dummy.next = head;
   let curr = dummy;
   while (curr.next !== null && curr.next.next !== null) {
-    let n1 = curr.next;
-    let n2 = curr.next.next;
+    const n1 = curr.next;
+    const n2 = curr.next.next;
     curr.next = n2;
     n1.next = n2.next;
     n2.next = n1;
@@ -32,7 +32,9 @@ function ListNode(val, next) {
 
 // 辅助函数：根据数组快速创建链表（可选，用于测试时构造输入用例）
 function createLinkedList(arr) {
-  if (arr.length === 0) return null;
+  if (arr.length === 0) {
+    return null;
+  }
   const head = new ListNode(arr[0]);
   let current = head;
   for (let i = 1; i < arr.length; i++) {
