@@ -4,8 +4,10 @@
  * @param {Array<string>[]} strs
  * @returns {Array<string>[]}
  */
-var groupAnagrams = function (strs) {
-  if (strs.length === 0) return [];
+const groupAnagrams = function (strs) {
+  if (strs.length === 0) {
+    return [];
+  }
   const resArr = [];
   const mapper = new Map();
   for (const str of strs) {
@@ -15,7 +17,7 @@ var groupAnagrams = function (strs) {
       const asciiIdx = char.codePointAt() - 97;
       alphabet[asciiIdx]++;
     }
-    const resCompareStr = alphabet.join("-");
+    const resCompareStr = alphabet.join('-');
     // console.log(resCompareStr);
     if (mapper.has(resCompareStr)) {
       const tempArr = [...mapper.get(resCompareStr), str];
@@ -31,18 +33,18 @@ var groupAnagrams = function (strs) {
 };
 
 const originGroup = [
-  "tea",
-  "ate",
-  "eat",
-  "num",
-  "mun",
-  "bay",
-  "bat",
-  "tab",
-  "net",
-  "ten",
-  "aaaaaaaasdsdsdsdsadsdaaaa",
-  "aaaaaaaasdsdsdaaaasdsadsd",
+  'tea',
+  'ate',
+  'eat',
+  'num',
+  'mun',
+  'bay',
+  'bat',
+  'tab',
+  'net',
+  'ten',
+  'aaaaaaaasdsdsdsdsadsdaaaa',
+  'aaaaaaaasdsdsdaaaasdsadsd'
 ];
 
 console.log(groupAnagrams(originGroup));
