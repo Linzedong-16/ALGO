@@ -2,14 +2,14 @@
  * 螺旋矩阵遍历
  * @param {Array<Array<number>>} spiralArray
  */
-var spiralMatrix = function (spiralArray) {
+const spiralMatrix = function (spiralArray) {
   const res = [];
   // 方向枚举值
   const directions = Object.freeze({
     RIGHT: 0,
     LEFT: 1,
     DOWN: 2,
-    TOP: 3,
+    TOP: 3
   });
   // 初始向右遍历
   let direction = directions.RIGHT; // 方向变量
@@ -55,6 +55,6 @@ var spiralMatrix = function (spiralArray) {
 const spiralArray = [
   [1, 2, 3, 4],
   [5, 6, 7, 8],
-  [9, 10, 11, 12],
+  [9, 10, 11, 12]
 ];
 console.log(spiralMatrix(spiralArray));
