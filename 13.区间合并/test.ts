@@ -1,18 +1,12 @@
-/**
- * 合并区间
- * @param {Array<Array<number>>} intervals
- * @returns {Array<Array<number>>} result
- */
-const merge = function (intervals) {
+function merge(intervals: Array<Array<number>>): Array<Array<number>> {
   if (intervals.length < 2) {
     return intervals;
   }
-  intervals.sort((a, b) => a[0] - b[0]);
-
+  intervals = intervals.sort((a, b) => a[0] - b[0]);
+  const result = new Array<Array<number>>();
   let curr = intervals[0];
-  const result = [];
   for (const interval of intervals) {
-    if (curr[1] >= interval[0]) {
+    if (curr[1] > interval[0]) {
       curr[1] = Math.max(curr[1], interval[1]);
     } else {
       result.push(curr);
@@ -23,7 +17,7 @@ const merge = function (intervals) {
     result.push(curr);
   }
   return result;
-};
+}
 
 console.log(
   merge([
