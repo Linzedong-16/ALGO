@@ -4,7 +4,7 @@
  * @param {number} n 行数
  * @returns {number} res
  */
-var uniquePaths = function (m, n) {
+const uniquePaths = function (m, n) {
   const memo = [];
   for (let i = 0; i < n; i++) {
     memo.push([]); // 每个数组固定长 m
