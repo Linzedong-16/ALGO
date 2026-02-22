@@ -4,7 +4,7 @@
  * @param {number} n
  * @returns {number}
  */
-var climbStairs = function (n) {
+const climbStairs = function (n) {
   const memo = [];
   memo[1] = 1;
   memo[2] = 2;
