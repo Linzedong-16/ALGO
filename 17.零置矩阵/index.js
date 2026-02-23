@@ -1,11 +1,11 @@
-import { testCases, printMatrix } from "./utils.js";
+import { testCases, printMatrix } from './utils.js';
 
 /**
  * 73.零置矩阵
  * @param {Array<Array<number>>} matrix
  * @returns {Array<Array<number>>} res
  */
-var setZeros = (matrix) => {
+const setZeros = (matrix) => {
   // 第一行、列是否有零
   let firstColHasZero = false;
   let firstRowHasZero = false;
@@ -60,6 +60,6 @@ testCases.forEach(({ name, matrix }) => {
   const originalMatrix = JSON.parse(JSON.stringify(matrix));
   const resultMatrix = setZeros(JSON.parse(JSON.stringify(matrix)));
 
-  printMatrix(originalMatrix, "输入矩阵");
-  printMatrix(resultMatrix, "输出矩阵");
+  printMatrix(originalMatrix, '输入矩阵');
+  printMatrix(resultMatrix, '输出矩阵');
 });
