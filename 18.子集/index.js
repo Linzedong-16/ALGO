@@ -1,25 +1,56 @@
 /**
  * 子集
- * @param {Array<Array<number>>} nums
+ * @param {Array<number>} nums
  * @returns {Array<Array<number>>} result
  */
 function subSet(nums) {
   const result = [];
 
   function backTrack(start, curr) {
-    result.push([...curr]);
+    result.push([...curr]); // []
     for (let i = start; i < nums.length; i++) {
       // 扩充curr数组
-      curr.push(nums[i]);
-      backTrack(i + 1, curr);
-      curr.pop();
+      curr.push(nums[i]); // [1]           [2]        [3]
+      backTrack(i + 1, curr); // 1 [1]         2 [2]      3[3]
+      curr.pop(); // [] []  []
     }
   }
   backTrack(0, []);
   return result;
 }
 
-console.log(subSet([1, 2, 3]));
+/**
+ * 子集
+ * @param {Array<Array<number>>} nums
+ * @returns {Array<Array<number>>} result
+ */
+function subSet2(nums) {
+  const result = [];
+
+  /**
+   *
+   * @param {number} start
+   * @param {Array<number>} currArr
+   */
+  function tb(start, currArr) {
+    result.push([...currArr]); // 先把当前待修改子集加入结果
+
+    // 这个for循环按照顺序一个个遍历元素保证只能向后找
+    for (let i = start; i < nums.length; i++) {
+      // 如 当前为[]，加0号元素，先把只有一个元素的子集在for循环遍历完
+      currArr.push(nums[i]);
+      // 递归 以当前子集开头的其他组合
+      tb(i + 1, currArr);
+      // 回溯的关键在于处于递归函数同一层同一个循环体的元素都要一个个加入
+      currArr.pop(); // [] 预留空间，让同级的其他元素加入形成新的子集组合
+    }
+  }
+
+  tb(0, []);
+  return result;
+}
+
+console.log(subSet2([1, 2, 3]));
 
 /**
  * ====================== 回溯法求子集（无重复元素）======================
