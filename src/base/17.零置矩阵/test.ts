@@ -5,7 +5,7 @@ function setZeros(matrix: Array<Array<number>>): Array<Array<number>> {
   if (matrix.length === 0 || matrix[0].length === 0) {
     return matrix;
   }
-  // TODO: 第一行、列是否有零
+  //  第一行、列是否有零
   let firstColHasZero = false;
   let firstRowHasZero = false;
   // 遍历第一列
@@ -23,7 +23,7 @@ function setZeros(matrix: Array<Array<number>>): Array<Array<number>> {
     }
   }
 
-  // TODO: 给第一行一列标零
+  //  给第一行一列标零
   for (let i = 1; i < matrix.length; i++) {
     for (let j = 1; j < matrix[0].length; j++) {
       if (matrix[i][j] === 0) {
@@ -33,7 +33,7 @@ function setZeros(matrix: Array<Array<number>>): Array<Array<number>> {
     }
   }
 
-  // TODO: 根据刚才标的0再去反推内部的0
+  //  根据刚才标的0再去反推内部的0
   // 第一列
   for (let i = 1; i < matrix.length; i++) {
     if (matrix[i][0] === 0) {
@@ -50,7 +50,7 @@ function setZeros(matrix: Array<Array<number>>): Array<Array<number>> {
     }
   }
 
-  // TODO: 将第一行/列全 设置为0
+  //  将第一行/列全 设置为0
   if (firstRowHasZero) {
     for (let i = 0; i < matrix[0].length; i++) {
       matrix[0][i] = 0;
