@@ -13,3 +13,12 @@
 array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
 
 ```
+
+## 易错点
+
+```js
+continue
+return
+break
+不分
+```
