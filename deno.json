@@ -4,6 +4,13 @@
   },
 
   "imports": {
-    "@std/assert": "https://deno.land/std@0.210.0/assert/mod.ts"
+    "@std/assert": "https://deno.land/std@0.210.0/assert/mod.ts",
+    "#utils/": "./src/utils/",
+    "#/": "./src/",
+    "#base/": "./src/base/",
+    "#ACM/": "./src/ACM/",
+    "#expand/": "./src/expand/",
+    "#test/": "./src/test/",
+    "#others/": "./src/others/"
   }
 }
