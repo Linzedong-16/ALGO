@@ -31,7 +31,7 @@ export function listToArray(head) {
   const result = [];
   let current = head;
 
-  while (current) {
+  while (current !== null) {
     result.push(current.val);
     current = current.next;
   }
