@@ -92,4 +92,7 @@ continue
 return
 break
 不分
+
+忘记向下取整
+carry = Math.floor(sum / 10) // 要向下取整
 ```
