@@ -95,4 +95,20 @@ break
 
 忘记向下取整
 carry = Math.floor(sum / 10) // 要向下取整
+
+
+// 生成电话号码组合的时候，忘记return，导致后面代码执行报错
+    function traceback(curr, start){
+        if (curr.length === digits.length){
+            // res.push(curr) ❌ 代码不返回结束函数 -> 后续start溢出
+            return res.push(curr)
+        }
+
+        // 结束条件判断必须直接退出返回，start可能溢出，导致映射结果不可遍历报错
+        for(const char of numMap[digits[start]]){
+            curr += char;
+            traceback(curr, start + 1);
+            curr = curr.slice(0, start)
+        }
+    }
 ```
