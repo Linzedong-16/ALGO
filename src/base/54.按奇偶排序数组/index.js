@@ -4,7 +4,7 @@
  */
 const sortArrayByParity = function (nums) {
   let left = 0,
-    right = nums.length;
+    right = nums.length - 1;
   while (left <= right) {
     if (nums[left] % 2 === 0) {
       left++;
