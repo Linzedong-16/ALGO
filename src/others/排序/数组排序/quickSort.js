@@ -4,14 +4,14 @@
  * @returns {number[]}
  */
 export function quickSortWithExtraArr(arr) {
-  if (arr.length <= 1) {
+  if (arr.length < 2) {
     return arr;
   }
-  const pivot = arr[Math.floor(arr.length / 2)];
 
-  const left = arr.filter((x) => x < pivot);
-  const mid = arr.filter((x) => x === pivot);
-  const right = arr.filter((x) => x > pivot);
+  const pivotIdx = arr.length - 1;
+  const left = arr.filter((x) => x < arr[pivotIdx]);
+  const mid = arr.filter((x) => x === arr[pivotIdx]);
+  const right = arr.filter((x) => x > arr[pivotIdx]);
 
   return [...quickSortWithExtraArr(left), ...mid, ...quickSortWithExtraArr(right)];
 }
@@ -22,61 +22,32 @@ export function quickSortWithExtraArr(arr) {
  * @returns {number[]}
  */
 export function quickSort(arr) {
-  /**
-   *
-   * @param {number[]} arr
-   * @param {number} left
-   * @param {number} right
-   */
-  function qs(arr, left = 0, right = arr.length - 1) {
-    // 优化I: 对于升序子数组不做处理
-    let isOrdered = true;
-    for (let i = 0; i < arr.length - 1; i++) {
-      if (arr[i] > arr[i + 1]) {
-        isOrdered = false;
-        break;
-      }
-    }
-    if (isOrdered) {
-      return;
-    }
-
-    // 就一个长度的或没有子数组了
+  function qs(left = 0, right = arr.length - 1) {
+    // 直到子数组剩下 不多于 1 个时退出
     if (left >= right) {
       return;
     }
+
     if (left < right) {
-      const pivotIdx = partition(arr, left, right);
-      qs(arr, left, pivotIdx - 1);
-      qs(arr, pivotIdx + 1, right);
+      // 将数组分类并选取基准
+      const pivotIdx = partition(left, right);
+      // 递归排序子数组
+      qs(left, pivotIdx - 1);
+      qs(pivotIdx + 1, right);
     }
   }
-
-  /**
-   * 严格按照正统的快排方式书写
-   * @param {number[]} arr
-   * @param {number} left
-   * @param {number} right
-   * @returns {number} pivotIdx
-   */
-  function partition(arr, left, right) {
-    // 优化II: 选取随机值作为基准值，降低超时概率
-    const randIdx = Math.floor(Math.random() * (right - left + 1)) + left;
-    [arr[randIdx], arr[right]] = [arr[right], arr[randIdx]];
-
-    let i = left - 1; // 小于等于基准值的最后一个比较元素的索引
-    // right作为基准值，必须<right遍历
-    for (let j = left; j < right; j++) {
-      if (arr[j] <= arr[right]) {
-        i++;
+  function partition(left, right) {
+    const pivot = arr[right];
+    let j = left - 1;
+    for (let i = left; i < right; i++) {
+      if (arr[i] <= pivot) {
+        j++;
         [arr[i], arr[j]] = [arr[j], arr[i]];
       }
     }
-    [arr[i + 1], arr[right]] = [arr[right], arr[i + 1]];
-    return i + 1;
+    [arr[j + 1], arr[right]] = [arr[right], arr[j + 1]];
+    return j + 1;
   }
-
-  qs(arr);
-
+  qs();
   return arr;
 }

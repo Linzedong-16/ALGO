@@ -4,15 +4,18 @@
  * @returns {number[]} res
  */
 export function mergeSort(arr) {
-  // 无需再分
   if (arr.length < 2) {
     return arr;
   }
+  const mid = Math.floor(arr.length / 2);
+  const left = mergeSort(arr.slice(0, mid));
+  const right = mergeSort(arr.slice(mid));
+
   /**
    *
    * @param {number[]} left
    * @param {number[]} right
-   * @returns {number[]} res
+   * @returns {number[]}
    */
   function merge(left, right) {
     let res = [];
@@ -20,25 +23,22 @@ export function mergeSort(arr) {
       r = 0;
     while (l < left.length && r < right.length) {
       if (left[l] <= right[r]) {
-        res.push(left[l++]);
+        res.push(left[l]);
+        l++;
       } else {
-        res.push(right[r++]);
+        res.push(right[r]);
+        r++;
       }
     }
 
-    // 必坑：JS的concat不会修改原数组，会返回新数组
     if (l < left.length) {
-      res = res.concat(left.slice(l));
+      res = res.concat(...left.slice(l));
     }
     if (r < right.length) {
-      res = res.concat(right.slice(r));
+      res = res.concat(...right.slice(r));
     }
     return res;
   }
 
-  const mid = Math.floor(arr.length / 2);
-
-  const left = mergeSort(arr.slice(0, mid));
-  const right = mergeSort(arr.slice(mid, arr.length));
   return merge(left, right);
 }
