@@ -111,4 +111,7 @@ carry = Math.floor(sum / 10) // 要向下取整
             curr = curr.slice(0, start)
         }
     }
+
+// 循环条件错误：应该是 && 而不是 ||
+while(i >= 0 && i < plants.length && j >=0 && j < plants[0].length)
 ```
