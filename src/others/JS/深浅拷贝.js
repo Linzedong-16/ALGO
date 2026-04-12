@@ -14,6 +14,7 @@ const origin = {
   }
 };
 
+// 1刷
 function deepCopy1(obj, hash = new WeakMap()) {
   // 基本数据类型直接返回
   if (obj === null || typeof obj !== 'object') {
@@ -37,9 +38,37 @@ function deepCopy1(obj, hash = new WeakMap()) {
   return copyObj;
 }
 
+// 2刷
+function deepClone2(obj, hash = new WeakMap()) {
+  // 基本数据类型 和 Function 直接返回
+  if (obj === null || typeof obj !== 'object') {
+    return obj;
+  }
+
+  // 是不是循环引用的
+  if (hash.has(obj)) {
+    return hash.get(obj);
+  }
+
+  // 创建副本：对象 Or 数组
+  const copyObj = Array.isArray(obj) ? [] : {};
+
+  // 缓存副本引用: k: 原始对象 v: 副本对象
+  hash.set(obj, copyObj);
+
+  for (const key in obj) {
+    // for in 循环要避免检查原型对象的属性
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      // 防止obj 对象上有同名 属性hasOwnProperty
+      copyObj[key] = deepClone2(obj[key], hash);
+    }
+  }
+  return copyObj;
+}
+
 import { assertEquals } from '@std/assert';
 Deno.test('深浅拷贝', () => {
-  const deepClone = deepCopy1(origin);
+  const deepClone = deepClone2(origin);
   deepClone.d.f = 0;
   console.log(origin);
 });
