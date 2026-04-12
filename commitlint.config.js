@@ -33,11 +33,11 @@ export default {
   },
   prompt: {
     types: [
-      { value: 'feat', name: '✨ 新功能: 新增功能' },
-      { value: 'fix', name: '🐛 修复: 修复缺陷' },
+      { value: 'feat', name: '✨ 新功能: 新增题' },
+      { value: 'fix', name: '🐛 修复: 修复遗漏错误' },
       { value: 'docs', name: '📚 文档: 更新文档' },
-      { value: 'refactor', name: '📦 重构: 代码重构（不新增功能也不修复 bug）' },
-      { value: 'perf', name: '🚀 性能: 提升性能' },
+      { value: 'refactor', name: '📦 重构: 文件结构重构' },
+      { value: 'perf', name: '🚀 性能: 新增优化算法' },
       { value: 'test', name: '🧪 测试: 添加测试' },
       { value: 'chore', name: '🔧 工具: 更改构建流程或辅助工具' },
       { value: 'revert', name: '⏪ 回滚: 代码回滚' },
