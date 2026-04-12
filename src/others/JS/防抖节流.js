@@ -1,33 +1,57 @@
-/**
- *
- * @param {Function} callback
- * @param {number} delay
- */
+// /**
+//  *
+//  * @param {Function} callback
+//  * @param {number} delay
+//  */
+// function debounce(callback, delay) {
+//   let timer = null; // 定时器的闭包变量
+//   // 剩余参数数组args(数组)
+//   return function (...args) {
+//     if (timer) {
+//       clearTimeout(timer);
+//     }
+//     timer = setTimeout(() => {
+//       callback.apply(this, args); // 第二个参数是数组
+//     }, delay);
+//   };
+// }
+
+// /**
+//  * 节流函数用于优化频繁出发的操作，滚动条、事件监听等
+//  * @param {Function} callback
+//  * @param {number} interval
+//  */
+// function throttle(callback, interval) {
+//   let lastTime = 0;
+//   return function (...args) {
+//     const now = Date.now();
+//     if (now - lastTime >= interval) {
+//       callback.apply(this, args);
+//       lastTime = now;
+//     }
+//   };
+// }
+
 function debounce(callback, delay) {
-  let timer = null; // 定时器的闭包变量
-  // 剩余参数数组args(数组)
+  let timer = null;
   return function (...args) {
     if (timer) {
       clearTimeout(timer);
     }
     timer = setTimeout(() => {
-      callback.apply(this, args); // 第二个参数是数组
+      // callback.call(this, args);
+      callback.apply(this, args); // apply才传递数组的！！！！！！！！！！
     }, delay);
   };
 }
 
-/**
- * 节流函数用于优化频繁出发的操作，滚动条、事件监听等
- * @param {Function} callback
- * @param {number} interval
- */
 function throttle(callback, interval) {
-  let lastTime = 0;
+  let last = 0;
   return function (...args) {
     const now = Date.now();
-    if (now - lastTime >= interval) {
+    if (now - last >= interval) {
       callback.apply(this, args);
-      lastTime = now;
+      last = now;
     }
   };
 }
