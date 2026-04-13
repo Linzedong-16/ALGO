@@ -38,15 +38,15 @@ const generateScopeOverrides = () => {
   const types = ['feat', 'fix', 'docs', 'refactor', 'perf', 'test', 'chore'];
   const overrides = {};
   for (const type of types) {
-    overrides[type] = {
-      'root:extra': '项目配置相关',
-      ACM: 'ACM 相关算法',
-      base: '基础算法题',
-      expand: '扩展算法题',
-      others: '其他算法相关',
-      test: '测试相关',
-      utils: '工具函数相关'
-    };
+    overrides[type] = [
+      { name: 'root:extra', value: 'root:extra', description: '项目配置相关' },
+      { name: 'ACM', value: 'ACM', description: 'ACM 相关算法' },
+      { name: 'base', value: 'base', description: '基础算法题' },
+      { name: 'expand', value: 'expand', description: '扩展算法题' },
+      { name: 'others', value: 'others', description: '其他算法相关' },
+      { name: 'test', value: 'test', description: '测试相关' },
+      { name: 'utils', value: 'utils', description: '工具函数相关' }
+    ];
   }
   return overrides;
 };
