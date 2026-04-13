@@ -34,19 +34,26 @@ const algorithmTypes = [
   'extra'
 ];
 
+// 生成包含算法类型的 scope 选项
+const generateScopeWithAlgorithmTypes = () => {
+  const scopeOptions = [];
+  for (const scope of scopes) {
+    for (const algorithmType of algorithmTypes) {
+      scopeOptions.push({
+        name: `${scope}:${algorithmType}`,
+        value: `${scope}:${algorithmType}`,
+        description: `${scope} 下的 ${algorithmType} 算法`
+      });
+    }
+  }
+  return scopeOptions;
+};
+
 const generateScopeOverrides = () => {
   const types = ['feat', 'fix', 'docs', 'refactor', 'perf', 'test', 'chore'];
   const overrides = {};
   for (const type of types) {
-    overrides[type] = [
-      { name: 'root:extra', value: 'root:extra', description: '项目配置相关' },
-      { name: 'ACM', value: 'ACM', description: 'ACM 相关算法' },
-      { name: 'base', value: 'base', description: '基础算法题' },
-      { name: 'expand', value: 'expand', description: '扩展算法题' },
-      { name: 'others', value: 'others', description: '其他算法相关' },
-      { name: 'test', value: 'test', description: '测试相关' },
-      { name: 'utils', value: 'utils', description: '工具函数相关' }
-    ];
+    overrides[type] = generateScopeWithAlgorithmTypes();
   }
   return overrides;
 };
@@ -78,7 +85,7 @@ export default {
     skipQuestions: ['body', 'footerPrefix', 'footer', 'breaking'],
     messages: {
       type: '📌 请选择提交类型:',
-      scope: '🎯 请选择影响范围:',
+      scope: '🎯 请选择影响范围和算法类型:',
       subject: '📝 请简要描述更改:',
       confirmCommit: '✅ 确认提交?'
     },
