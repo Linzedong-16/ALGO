@@ -1,35 +1,66 @@
 /** @type {import('cz-git').UserConfig} */
+/**
+ * 算法刷题仓库的 commitlint 配置
+ * 基于通用 Git 项目开发标准，针对算法刷题场景进行定制化调整
+ *
+ * 提交格式规范：
+ * <type>([scope]:<algorithm-type>): <description>
+ */
+
+// 影响范围
+const scopes = ['root', 'ACM', 'base', 'expand', 'others', 'test', 'utils'];
+
+// 算法类型
+const algorithmTypes = [
+  'Array',
+  'String',
+  'Two Pointers',
+  'Sliding Window',
+  'Hash Table',
+  'Linked List',
+  'Stack',
+  'Tree',
+  'Binary Tree',
+  'DFS',
+  'BFS',
+  'Backtracking',
+  'DP',
+  'Binary Search',
+  'Math',
+  'Bit Manipulation',
+  'Prefix Sum',
+  'Sorting',
+  'JS&TS',
+  'extra'
+];
+
+const generateScopeOverrides = () => {
+  const types = ['feat', 'fix', 'docs', 'refactor', 'perf', 'test', 'chore'];
+  const overrides = {};
+  for (const type of types) {
+    overrides[type] = {
+      'root:extra': '项目配置相关',
+      ACM: 'ACM 相关算法',
+      base: '基础算法题',
+      expand: '扩展算法题',
+      others: '其他算法相关',
+      test: '测试相关',
+      utils: '工具函数相关'
+    };
+  }
+  return overrides;
+};
+
 export default {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    // @see: `https://commitlint.js.org/#/reference-rules`
     'body-leading-blank': [2, 'always'],
     'footer-leading-blank': [1, 'always'],
     'header-max-length': [2, 'always', 108],
     'subject-empty': [2, 'never'],
     'type-empty': [2, 'never'],
     'subject-case': [0],
-    'type-enum': [
-      2,
-      'always',
-      [
-        'feat',
-        'fix',
-        'docs',
-        'style',
-        'refactor',
-        'perf',
-        'test',
-        'build',
-        'ci',
-        'chore',
-        'revert',
-        'wip',
-        'workflow',
-        'types',
-        'release'
-      ]
-    ]
+    'type-enum': [2, 'always', ['feat', 'fix', 'docs', 'refactor', 'perf', 'test', 'chore']]
   },
   prompt: {
     types: [
@@ -39,20 +70,18 @@ export default {
       { value: 'refactor', name: '📦 重构: 文件结构重构' },
       { value: 'perf', name: '🚀 性能: 新增优化算法' },
       { value: 'test', name: '🧪 测试: 添加测试' },
-      { value: 'chore', name: '🔧 工具: 更改构建流程或辅助工具' },
-      { value: 'revert', name: '⏪ 回滚: 代码回滚' },
-      { value: 'style', name: '🎨 样式: 格式调整（不影响代码运行）' }
+      { value: 'chore', name: '🔧 工具: 更改项目环境或配置文件' }
     ],
-    scopes: ['root', 'ACM', 'base', 'expand', 'others', 'test', 'utils', 'design'],
+    // ✅ 这里修复成字符串数组，不再报错
+    scopes: [...scopes],
     allowCustomScopes: true,
-    skipQuestions: ['body', 'footerPrefix', 'footer', 'breaking'], // 跳过"详细描述"和"底部信息"
+    skipQuestions: ['body', 'footerPrefix', 'footer', 'breaking'],
     messages: {
       type: '📌 请选择提交类型:',
-      scope: '🎯 请选择影响范围 (可选):',
+      scope: '🎯 请选择影响范围:',
       subject: '📝 请简要描述更改:',
-      body: '🔍 详细描述 (可选):',
-      footer: '🔗 关联的 ISSUE 或 BREAKING CHANGE (可选):',
       confirmCommit: '✅ 确认提交?'
-    }
+    },
+    scopeOverrides: generateScopeOverrides()
   }
 };
