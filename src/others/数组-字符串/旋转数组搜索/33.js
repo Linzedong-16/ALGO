@@ -1,49 +1,45 @@
 /**
- * 搜索旋转排序数组
+ * 搜索旋转排序数组 O(logn) 二分查找变种
  * @param {number[]} nums
  * @param {number} target
  * @return {number}
  */
 const search = function (nums, target) {
-  if (nums.length === 1) {
-    return nums[0] === target ? 0 : -1;
+  if (nums.length < 2) {
+    nums[0] === target ? 0 : -1;
   }
-  // 使用二分查找
   let left = 0,
     right = nums.length - 1;
   while (left <= right) {
-    // 向下取整
     const mid = Math.floor((left + right) / 2);
     if (nums[mid] === target) {
       return mid;
     }
-    // 先确认哪边有序在哪边使用二分查找
-    // 因为是向下取整的mid，mid是有可能等于left的
+
+    // 判断哪边有序，至少有一边有序
     if (nums[left] <= nums[mid]) {
-      // 说明左边是有序部分
-      if (nums[mid] > target && target >= nums[left]) {
-        // 缩小有序区间
+      // 左边有序
+      if (target >= nums[left] && target < nums[mid]) {
+        // 在该区间 right收缩
         right = mid - 1;
       } else {
-        // 去另一半边找
+        // 不在哦
         left = mid + 1;
       }
     } else {
       // 右边有序
-      if (nums[mid] < target && target <= nums[right]) {
-        // 缩小这个有序区间查找
+      if (target > nums[mid] && target <= nums[right]) {
         left = mid + 1;
       } else {
         right = mid - 1;
       }
     }
   }
-
   return -1;
 };
 
 import { assertEquals } from '@std/assert';
-Deno.test('旋转数组搜索', () => {
+Deno.test('搜索旋转排序数组', () => {
   console.time('耗时');
   assertEquals(search([4, 5, 6, 7, 0, 1, 2], 0), 4);
   assertEquals(search([4, 5, 6, 7, 0, 1, 2], 3), -1);

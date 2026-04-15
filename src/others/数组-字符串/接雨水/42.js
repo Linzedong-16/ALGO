@@ -3,32 +3,33 @@
  * @return {number}
  */
 const trap = function (height) {
-  if (height.length < 3) {
-    return 0;
-  }
-  // 数组缓存策略
+  /**
+   * 每个位置上的元素左侧高的边界
+   */
   const leftEdge = new Array(height.length).fill(0);
+  /**
+   * 每个位置上的元素右侧高的边界
+   */
   const rightEdge = new Array(height.length).fill(0);
+  // 初始化左右边界数组
+  let max = 0;
 
-  // 左右缓存数组记录每个元素左右方向上的最大边界
-  let max = 0; // 暂存左右方向上出现过的最高点
   for (let i = 1; i < height.length; i++) {
     max = Math.max(max, height[i - 1]);
     leftEdge[i] = max;
   }
-
   max = 0;
-  for (let j = height.length - 2; j >= 0; j--) {
-    max = Math.max(max, height[j + 1]);
-    rightEdge[j] = max;
+  for (let i = height.length - 2; i >= 0; i--) {
+    max = Math.max(max, height[i + 1]);
+    rightEdge[i] = max;
   }
 
-  // 计算水量
+  // 开始接雨水
   let volume = 0;
   for (let i = 0; i < height.length; i++) {
-    const h = Math.min(leftEdge[i], rightEdge[i]);
-    if (h - height[i] > 0) {
-      volume += h - height[i];
+    const std = Math.min(leftEdge[i], rightEdge[i]);
+    if (std > height[i]) {
+      volume += std - height[i];
     }
   }
 

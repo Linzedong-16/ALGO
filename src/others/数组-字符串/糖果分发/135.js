@@ -3,29 +3,32 @@
  * @return {number}
  */
 const candy = function (ratings) {
-  const left = new Array(ratings.length).fill(1);
-
-  // 左边独立比较
+  const left = new Array(ratings.length).fill(0);
+  // 从左往右比较缓存分配的糖
   for (let i = 0; i < ratings.length; i++) {
     if (i > 0 && ratings[i] > ratings[i - 1]) {
-      left[i] = left[i - 1] + 1; //比前一个多 1 颗
+      // 分数高就比左边的多拿 1 粒
+      left[i] = left[i - 1] + 1;
     } else {
+      // 首位或评分不必左边的高保底 1粒
       left[i] = 1;
     }
   }
-
-  let right = 0;
-  let total = 0;
-  // 右边独立比较
-  for (let j = ratings.length - 1; j >= 0; j--) {
-    if (j < ratings.length - 1 && ratings[j] > ratings[j + 1]) {
-      right++; // right 暂存上一个元素的分配数
+  let sum = 0;
+  // 从右往左计算分配的糖并加总
+  let right = 1; // 保底都有1粒
+  for (let i = ratings.length - 1; i >= 0; i--) {
+    if (i < ratings.length - 1 && ratings[i] > ratings[i + 1]) {
+      // 比右边的高就在右边基础上加1粒
+      right++;
     } else {
+      // 保底给1粒
       right = 1;
     }
-    total += Math.max(left[j], right);
+    // 同时满足必须选最大的
+    sum += Math.max(right, left[i]);
   }
-  return total;
+  return sum;
 };
 
 import { assertEquals } from '@std/assert';
