@@ -16,6 +16,8 @@ class ListNode {
 }
 
 /**
+ * 相交链表
+ * 链表、双指针
  * @param {ListNode} headA
  * @param {ListNode} headB
  * @return {ListNode}

@@ -35,6 +35,7 @@ const head = createLinkedList([1, 2, 3, 4, 5]);
 
 /**
  * 一次遍历完成倒序删除
+ * 链表、双指针
  * @param {ListNode} head
  * @param {number} n
  * @return {ListNode}

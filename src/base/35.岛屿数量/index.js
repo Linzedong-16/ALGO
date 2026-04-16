@@ -1,6 +1,8 @@
 import { assertEquals } from '@std/assert';
 
 /**
+ * 岛屿数量
+ * 数组、DFS、BFS
  * @param {character[][]} grid
  * @return {number}
  */

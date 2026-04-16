@@ -1,6 +1,8 @@
 /**
- *
+ * 有效括号
+ * 栈、字符串
  * @param {string} codeStr
+ * @returns {boolean}
  */
 const isValid = function (codeStr) {
   const mappings = new Map();

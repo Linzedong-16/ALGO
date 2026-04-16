@@ -1,5 +1,6 @@
 /**
  * 使用节点交换实现两两交换
+ * 链表、双指针
  * @param {ListNode} head
  * @returns {ListNode}
  */

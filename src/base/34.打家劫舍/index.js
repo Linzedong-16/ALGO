@@ -1,6 +1,8 @@
 import { assertEquals } from '@std/assert';
 
 /**
+ * 打家劫舍
+ * 数组、动态规划
  * @param {number[]} nums
  * @return {number}
  */
@@ -22,7 +24,8 @@ const rob = function (nums) {
 };
 
 /**
- * 这次试试自上而下
+ * 打家劫舍（自上而下）
+ * 数组、动态规划
  * @param {number[]} nums
  * @return {number}
  */

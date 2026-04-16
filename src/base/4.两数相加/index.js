@@ -37,7 +37,8 @@ const l1 = createLinkedList([2, 4, 3]);
 const l2 = createLinkedList([7, 0, 8]);
 
 /**
- *
+ * 两数相加
+ * 链表、数学
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @returns {ListNode} list

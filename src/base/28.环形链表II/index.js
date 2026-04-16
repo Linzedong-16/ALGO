@@ -2,6 +2,8 @@ import { createCycleList, printList, getCycleNodeVal } from './utils.js';
 import { assertEquals } from '@std/assert';
 
 /**
+ * 环形链表 II
+ * 链表、双指针
  * @param {ListNode} head
  * @return {ListNode} node
  */

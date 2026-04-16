@@ -1,4 +1,6 @@
 /**
+ * 验证回文串 II
+ * 字符串、双指针、贪心
  * @param {string} s
  * @return {boolean}
  */

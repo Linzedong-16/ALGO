@@ -8,6 +8,8 @@ import { arrayToList, listToArray } from '#utils/LinkList/LinkListUtils.js';
  * }
  */
 /**
+ * 两数相加 II
+ * 链表、栈
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}

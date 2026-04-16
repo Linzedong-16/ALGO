@@ -1,5 +1,6 @@
 /**
  * 买卖股票最佳时机
+ * 数组、动态规划、贪心
  * @param {number[]} prices
  * @returns {number} prefit
  */
@@ -17,6 +18,7 @@ function maxProfit(prices) {
 }
 /**
  * 买卖股票最佳时机(优化：减去剩余开支，减少逻辑冗余)
+ * 数组、动态规划、贪心
  * @param {number[]} prices
  * @returns {number} prefit
  */

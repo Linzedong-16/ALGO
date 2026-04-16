@@ -1,5 +1,6 @@
 /**
  * 两数相加等于target
+ * 数组、哈希表
  * @param {Array<number>} nums
  * @param {number} target
  * @returns {Array<number>} result

@@ -1,4 +1,6 @@
 /**
+ * 乘积最大子数组
+ * 数组、动态规划
  * @param {number[]} nums
  * @return {number}
  */

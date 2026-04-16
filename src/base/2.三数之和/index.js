@@ -1,5 +1,6 @@
 /**
  * 排序与双指针的方式，三数相加为0
+ * 数组、双指针、排序
  * @param {Array<number>} nums
  * @returns {Array<Array<number>>} res
  */

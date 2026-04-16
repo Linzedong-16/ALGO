@@ -1,5 +1,6 @@
 /**
  * 子集 II 传入的数组可以有重复的情况下
+ * 数组、回溯
  * @param {Array<number>} nums
  * @returns {Array<Array<number>>} result
  */
@@ -29,6 +30,7 @@ function subSetsWithDup(nums) {
 }
 /**
  * 子集 II 传入的数组可以有重复的情况下
+ * 数组、回溯
  * @param {Array<number>} nums
  * @returns {Array<Array<number>>} result
  */

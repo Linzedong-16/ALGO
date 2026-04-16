@@ -1,5 +1,6 @@
 /**
- *
+ * 验证回文串
+ * 字符串、双指针
  * @param {string} s
  * @returns {boolean}
  */

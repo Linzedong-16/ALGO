@@ -1,4 +1,6 @@
 /**
+ * 存在重复元素 II（双指针 + 滑动窗口）
+ * 数组、滑动窗口
  * @param {number[]} nums
  * @param {number} k
  * @return {boolean}
@@ -16,6 +18,8 @@ let containsNearbyDuplicate = function (nums, k) {
   return false;
 };
 /**
+ * 存在重复元素 II（HashMap）
+ * 数组、哈希表
  * @param {number[]} nums
  * @param {number} k
  * @return {boolean}

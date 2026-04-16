@@ -1,6 +1,8 @@
 import { assertEquals } from '@std/assert';
 
 /**
+ * 买卖股票最佳时机 III
+ * 数组、动态规划、贪心
  * @param {number[]} prices
  * @returns {number} profit
  */

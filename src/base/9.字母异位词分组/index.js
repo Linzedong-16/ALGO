@@ -1,6 +1,7 @@
 /**
  * 使用 ASCII 计算 索引
  * 使用 Map 间接比较中间字符串(使用分隔符将每个字符串的ASCII数组拼接成唯一字符串)
+ * 字符串、哈希表
  * @param {Array<string>[]} strs
  * @returns {Array<string>[]}
  */

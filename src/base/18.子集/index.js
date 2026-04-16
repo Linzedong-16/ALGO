@@ -1,5 +1,6 @@
 /**
  * 子集
+ * 数组、回溯
  * @param {Array<number>} nums
  * @returns {Array<Array<number>>} result
  */
@@ -21,6 +22,7 @@ function subSet(nums) {
 
 /**
  * 子集
+ * 数组、回溯
  * @param {Array<Array<number>>} nums
  * @returns {Array<Array<number>>} result
  */

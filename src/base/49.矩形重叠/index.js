@@ -1,4 +1,6 @@
 /**
+ * 矩形重叠
+ * 数学、几何
  * @param {number[]} rec1
  * @param {number[]} rec2
  * @return {boolean}

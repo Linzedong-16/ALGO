@@ -1,4 +1,6 @@
 /**
+ * 比较含退格字符串
+ * 字符串、双指针
  * @param {string} s
  * @param {string} t
  * @return {boolean}

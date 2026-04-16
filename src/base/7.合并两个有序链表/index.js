@@ -3,6 +3,7 @@ const l2 = createLinkedList([1, 2, 4, 7, 21]);
 
 /**
  *  将有序链表合并
+ * 链表、递归
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @returns {ListNode}

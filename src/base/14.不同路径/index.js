@@ -1,5 +1,6 @@
 /**
  * 终点的所有路径
+ * 数组、动态规划
  * @param {number} m 列数
  * @param {number} n 行数
  * @returns {number} res

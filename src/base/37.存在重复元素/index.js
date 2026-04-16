@@ -1,6 +1,8 @@
 import { assertEquals } from '@std/assert';
 
 /**
+ * 存在重复元素
+ * 数组、哈希表
  * @param {number[]} nums
  * @return {boolean}
  */

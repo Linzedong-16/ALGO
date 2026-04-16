@@ -1,4 +1,6 @@
 /**
+ * 除自身以外数组的乘积
+ * 数组、前缀和
  * @param {number[]} nums
  * @return {number[]}
  */

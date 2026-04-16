@@ -1,5 +1,6 @@
 /**
  * 动态规划典型：跟着状态(memo[i]的确定)走，每步都选最优，最后全局最优
+ * 数组、动态规划
  * @param {Array<number>} num
  * @returns {number} max
  */
@@ -19,6 +20,7 @@ const num = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 console.log(maxSubArray(num));
 /**
  * 动态规划典型思路二：自顶向下,有递归开销
+ * 数组、动态规划
  * @param {Array<number>} num
  * @returns {number} max
  */

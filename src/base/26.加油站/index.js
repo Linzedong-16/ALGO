@@ -1,4 +1,6 @@
 /**
+ * 加油站
+ * 数组、贪心
  * @param {number[]} gas
  * @param {number[]} cost
  * @return {number}

@@ -1,4 +1,6 @@
 /**
+ * 加一
+ * 数组、数学
  * @param {Array<number>} digits
  * @returns {Array<number>} res
  */

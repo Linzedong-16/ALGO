@@ -1,5 +1,6 @@
 /**
- * 滑动窗口
+ * 水果成篮
+ * 数组、滑动窗口、哈希表
  * @param {number[]} fruits
  * @return {number}
  */

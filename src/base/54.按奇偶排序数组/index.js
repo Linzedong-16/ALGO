@@ -1,4 +1,6 @@
 /**
+ * 按奇偶排序数组
+ * 数组、双指针
  * @param {number[]} nums
  * @return {number[]}
  */

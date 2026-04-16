@@ -1,5 +1,6 @@
 /**
  * 可以买多次了 超时了
+ * 数组、动态规划、贪心
  * @param {number[]} prices
  * @returns {number} profit
  */
@@ -26,6 +27,7 @@ function maxProfit(prices) {
 }
 /**
  * 可以买多次了 贪心优化
+ * 数组、动态规划、贪心
  * @param {number[]} prices
  * @returns {number} profit
  */

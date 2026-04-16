@@ -1,6 +1,7 @@
 import { createCycleList, printList, createNoCycleList } from './utils.js';
 /**
  * 快慢指针判断是否成环
+ * 链表、双指针
  * @param {ListNode} head
  * @return {boolean}
  */

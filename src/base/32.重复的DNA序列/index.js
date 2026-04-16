@@ -1,7 +1,8 @@
 import { assertEquals } from '@std/assert';
 
 /**
- * 长度为10的字串
+ * 重复的 DNA 序列
+ * 字符串、哈希表
  * @param {string} s
  * @return {string[]}
  */

@@ -1,5 +1,6 @@
 /**
  * 跳跃游戏 - Top-Down 动态规划
+ * 数组、动态规划、贪心
  * @param {Array<number>} nums
  * @returns {boolean} result 该数组是否可抵达最后一个位置
  */
@@ -41,6 +42,7 @@ console.log(canJump([2, 2, 1, 0, 4]));
 
 /**
  * 跳跃游戏 - Bottom-Up 动态规划
+ * 数组、动态规划、贪心
  * @param {Array<number>} nums
  * @returns {boolean} result 该数组是否可抵达最后一个位置
  */
@@ -70,6 +72,7 @@ console.log(canJumpByDynamicProgram_([2, 2, 1, 0, 4]));
 /**
  * 跳跃游戏 - 贪心算法
  * 将算法进一步简化，把很多对比、标记通路的步骤，简化替换为 只要够得着 就是通路
+ * 数组、动态规划、贪心
  * @param {Array<number>} nums
  * @returns {boolean} result 该数组是否可抵达最后一个位置
  */

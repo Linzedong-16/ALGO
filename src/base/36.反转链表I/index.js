@@ -1,6 +1,8 @@
 /**
- *
+ * 反转链表 I
+ * 链表、递归
  * @param {ListNode} head
+ * @returns {ListNode}
  */
 function reverseList(head) {
   // 三指针逆转

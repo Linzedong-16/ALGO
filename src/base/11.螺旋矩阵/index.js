@@ -1,6 +1,8 @@
 /**
  * 螺旋矩阵遍历
+ * 数组、矩阵
  * @param {Array<Array<number>>} spiralArray
+ * @returns {Array<number>}
  */
 const spiralMatrix = function (spiralArray) {
   const res = [];

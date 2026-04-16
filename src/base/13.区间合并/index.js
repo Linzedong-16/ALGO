@@ -1,5 +1,6 @@
 /**
  * 合并区间
+ * 数组、贪心
  * @param {Array<Array<number>>} intervals
  * @returns {Array<Array<number>>} result
  */

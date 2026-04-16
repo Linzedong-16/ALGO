@@ -2,6 +2,7 @@ import { testCases, printMatrix } from './utils.js';
 
 /**
  * 73.零置矩阵
+ * 数组、哈希表、矩阵
  * @param {Array<Array<number>>} matrix
  * @returns {Array<Array<number>>} res
  */

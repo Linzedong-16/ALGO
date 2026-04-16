@@ -1,4 +1,6 @@
 /**
+ * 有效字母异位词
+ * 字符串、哈希表
  * @param {string} s
  * @param {string} t
  * @return {boolean}

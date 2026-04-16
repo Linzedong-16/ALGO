@@ -1,5 +1,6 @@
 /**
  *  采用中心扩散的思想
+ * 双指针、字符串、动态规划
  * @param {string} s
  * @returns {string} subString
  */

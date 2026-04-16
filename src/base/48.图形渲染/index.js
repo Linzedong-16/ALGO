@@ -1,4 +1,6 @@
 /**
+ * 图像渲染
+ * 数组、DFS、BFS
  * @param {number[][]} image
  * @param {number} sr
  * @param {number} sc
