@@ -66,6 +66,31 @@ function deepClone2(obj, hash = new WeakMap()) {
   return copyObj;
 }
 
+// 3刷
+function deepCloneIII(obj, hash = new WeakMap()) {
+  if (obj === null || typeof obj !== 'object') {
+    return obj;
+  }
+
+  // 循环引用问题
+  if (hash.has(obj)) {
+    return hash.get(obj);
+  }
+  // ❌: 未判断数组还是对象
+  const copyObj = Array.isArray(obj) ? [] : {};
+
+  // ❌：未存储到hash
+  hash.set(obj, copyObj);
+
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      copyObj[key] = deepCloneIII(obj[key]);
+    }
+  }
+
+  return copyObj;
+}
+
 import { assertEquals } from '@std/assert';
 Deno.test('深浅拷贝', () => {
   const deepClone = deepClone2(origin);
