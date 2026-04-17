@@ -51,7 +51,7 @@ const generateScopeWithAlgorithmTypes = () => {
 };
 
 const generateScopeOverrides = () => {
-  const types = ['feat', 'fix', 'docs', 'refactor', 'perf', 'test', 'chore'];
+  const types = ['feat', 'fix', 'docs', 'refactor', 'perf', 'test', 'chore', 'repeat'];
   const overrides = {};
   for (const type of types) {
     overrides[type] = generateScopeWithAlgorithmTypes();
@@ -68,7 +68,11 @@ export default {
     'subject-empty': [2, 'never'],
     'type-empty': [2, 'never'],
     'subject-case': [0],
-    'type-enum': [2, 'always', ['feat', 'fix', 'docs', 'refactor', 'perf', 'test', 'chore']]
+    'type-enum': [
+      2,
+      'always',
+      ['feat', 'fix', 'docs', 'refactor', 'perf', 'test', 'chore', 'repeat']
+    ]
   },
   prompt: {
     types: [
@@ -78,7 +82,8 @@ export default {
       { value: 'refactor', name: '📦 重构: 文件结构重构' },
       { value: 'perf', name: '🚀 性能: 新增优化算法' },
       { value: 'test', name: '🧪 测试: 添加测试' },
-      { value: 'chore', name: '🔧 工具: 更改项目环境或配置文件' }
+      { value: 'chore', name: '🔧 工具: 更改项目环境或配置文件' },
+      { value: 'repeat', name: '🔄 重写: 重刷题' }
     ],
     // ✅ 这里修复成字符串数组，不再报错
     scopes: [...scopes],
