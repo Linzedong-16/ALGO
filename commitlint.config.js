@@ -31,6 +31,7 @@ const algorithmTypes = [
   'Prefix Sum',
   'Sorting',
   'JS&TS',
+  'Matrix',
   'extra'
 ];
 
