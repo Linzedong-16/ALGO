@@ -84,7 +84,8 @@ function deepCloneIII(obj, hash = new WeakMap()) {
 
   for (const key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      copyObj[key] = deepCloneIII(obj[key]);
+      // ❌：没有给递归函数传递hash，导致hash重复创建
+      copyObj[key] = deepCloneIII(obj[key], hash);
     }
   }
 
@@ -93,7 +94,7 @@ function deepCloneIII(obj, hash = new WeakMap()) {
 
 import { assertEquals } from '@std/assert';
 Deno.test('深浅拷贝', () => {
-  const deepClone = deepClone2(origin);
+  const deepClone = deepCloneIII(origin);
   deepClone.d.f = 0;
   console.log(origin);
 });
