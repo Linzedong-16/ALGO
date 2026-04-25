@@ -32,6 +32,36 @@
 //   };
 // }
 
+// function debounce(callback, delay) {
+//   let timer = null;
+//   return function (...args) {
+//     if (timer) {
+//       clearTimeout(timer);
+//     }
+//     timer = setTimeout(() => {
+//       // callback.call(this, args);
+//       callback.apply(this, args); // apply才传递数组的！！！！！！！！！！
+//     }, delay);
+//   };
+// }
+
+// function throttle(callback, interval) {
+//   let last = 0;
+//   return function (...args) {
+//     const now = Date.now();
+//     if (now - last >= interval) {
+//       callback.apply(this, args);
+//       last = now;
+//     }
+//   };
+// }
+
+/**
+ *
+ * @param {Function} callback
+ * @param {number} delay
+ * @returns {Function}
+ */
 function debounce(callback, delay) {
   let timer = null;
   return function (...args) {
@@ -39,19 +69,24 @@ function debounce(callback, delay) {
       clearTimeout(timer);
     }
     timer = setTimeout(() => {
-      // callback.call(this, args);
-      callback.apply(this, args); // apply才传递数组的！！！！！！！！！！
+      callback.apply(this, args);
     }, delay);
   };
 }
 
+/**
+ *
+ * @param {Function} callback
+ * @param {number} interval
+ * @returns {Function}
+ */
 function throttle(callback, interval) {
-  let last = 0;
+  let lastTime = 0;
   return function (...args) {
     const now = Date.now();
-    if (now - last >= interval) {
+    if (now - lastTime >= interval) {
       callback.apply(this, args);
-      last = now;
+      lastTime = now;
     }
   };
 }
