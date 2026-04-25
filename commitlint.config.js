@@ -32,6 +32,7 @@ const algorithmTypes = [
   'Sorting',
   'JS&TS',
   'Matrix',
+  'Greedy',
   'extra'
 ];
 
