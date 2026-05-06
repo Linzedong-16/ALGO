@@ -1,36 +1,23 @@
-// 计算器
-class calculator {
-  constructor() {
-    this.value = 0;
-  }
-
-  add(x) {
-    this.value += x;
-    return this;
-  }
-
-  subtract(x) {
-    this.value -= x;
-    return this;
-  }
-
-  multiply(x) {
-    this.value *= x;
-    return this;
-  }
-
-  getResult() {
-    return this.value;
-  }
+/**
+ *
+ * @param {number} ms
+ * @returns {Promise}
+ */
+function delay(ms) {
+  let timer = null;
+  return new Promise((resolve) => {
+    timer = setTimeout(() => {
+      resolve();
+      clearTimeout(timer);
+    }, ms);
+  });
 }
 
-import { assertEquals } from '@std/assert';
-Deno.test('计算器', () => {
-  const c = new calculator();
-  assertEquals(c.add(10).subtract(3).multiply(2).getResult(), 14);
-});
-
-// AsyncRequest 链式 + Promise
-class AsyncRequest {}
-
-// TODO: JQuery链式调用
+/**
+ * 打印函数
+ */
+function printHello() {
+  console.log('hello');
+  delay(3000).then(() => printHello());
+}
+printHello();
