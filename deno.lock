@@ -39,6 +39,7 @@
       "dependencies": [
         "npm:@commitlint/cli@^20.5.0",
         "npm:@commitlint/config-conventional@^20.5.0",
+        "npm:@eslint/js@^10.0.1",
         "npm:@typescript-eslint/eslint-plugin@^8.18.2",
         "npm:@typescript-eslint/parser@^8.18.2",
         "npm:commitizen@^4.3.1",
