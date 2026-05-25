@@ -8,7 +8,7 @@
  */
 
 // 影响范围
-const scopes = ['root', 'ACM', 'base', 'expand', 'others', 'test', 'utils'];
+const scopes = ['root', 'ACM', 'base', 'expand', 'others', 'test', 'utils', 'scenario'];
 
 // 算法类型
 const algorithmTypes = [
@@ -33,7 +33,9 @@ const algorithmTypes = [
   'JS&TS',
   'Matrix',
   'Greedy',
-  'extra'
+  // 非算法
+  'extra',
+  'scenario'
 ];
 
 // 生成包含算法类型的 scope 选项
