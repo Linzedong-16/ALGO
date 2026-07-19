@@ -51,6 +51,8 @@ const algorithmTypes = [
   'Browser',
   'Engineering',
   'AI',
+  'Git',
+  'BE',
   'scenario'
 ];
 
