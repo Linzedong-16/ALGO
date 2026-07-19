@@ -8,7 +8,17 @@
  */
 
 // 影响范围
-const scopes = ['root', 'ACM', 'base', 'expand', 'others', 'test', 'utils', 'scenario'];
+const scopes = [
+  'root',
+  'ACM',
+  'base',
+  'expand',
+  'others',
+  'test',
+  'utils',
+  'scenario',
+  'interview'
+];
 
 // 算法类型
 const algorithmTypes = [
@@ -35,6 +45,12 @@ const algorithmTypes = [
   'Greedy',
   // 非算法
   'extra',
+  'Vue',
+  'React',
+  'Network',
+  'Browser',
+  'Engineering',
+  'AI',
   'scenario'
 ];
 
