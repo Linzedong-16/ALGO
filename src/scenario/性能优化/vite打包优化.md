@@ -1,0 +1,14 @@
+## Vite打包优化全解
+
+vite生产环境用rollup构建
+
+1. TreeShaking优化：全量ES Module 禁止 require、sideeffects标记无副作用文件
+2. 手动分包+浏览器缓存：vue、react源码，组件图标库、工具库等**第三方依赖**拆成单独的chunk，业务工具组件等抽离成 公共chunk
+3. 第三方依赖优化：UI图标库自动按需引入，loadash-es、dayjs等轻量库替换，大型类库等通过external排除打包并引入CDN外链优化体积
+4. 静态资源压缩：图片压缩插件转webp、avif格式，资源内联阈值设定小图片、字体通过转base64减少请求次数，通过按文件类型分文件输出便于CDN缓存
+5. 产物压缩：配置生产环境esbuild打包压缩、默认cssCodeSplit拆分css代码、postCss压缩样式代码并清除冗余前缀、代码混淆注释删除移除console代码精简产物代码
+6. 构建缓存提速：打包复用缓存文件、自动缓存预构建的第三方依赖避免重新解析第三方依赖
+7. 压缩算法：用vite压缩插件 配合Gzip、Brotli算法 以及配置Nginx静态资源压缩，产物体积进一步减小
+8. 其他：排除mock等无用无关文件、关闭sourcemap、路由懒加载
+
+Tree-Shaking 时保证全量ESModule并标记sideEffects标记无副作用代码；通过manualChunks手动拆分第三方包和公共的业务代码，配合浏览器缓存减少重复请求资源；第三方UI图标库自动按需引入；业务用到的一些诸如loadsh、moment之类的包用loadash-es、dayjs轻量的去替代；对于一些较大的库可以部署CDN外链并配合external排除减少产物体积；对于静态的图片压缩和转webp、avif等格式，通过设定资源阈值对于小图或字体资源合理用base64内联减少请求次数；打包线上要用esbuild\teseer压缩移除注释、console等调试代码以及代码混淆等，配置cssCodeSplit拆分成单独css文件打包以及postCss剔除冗余前缀；构建通过指定缓存目录做打包提速再 配置 Gzip\Brotli算法以及配合Nginx的静态资源压缩对产物进一步压缩；然后路由懒加载、关闭线上的sourcemap、剔除mock测试等文件的优化手段
