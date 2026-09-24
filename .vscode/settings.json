@@ -13,8 +13,11 @@
   "code-runner.clearPreviousConsole": true,
   "code-runner.saveFileBeforeRun": true,
   "code-runner.executorMap": {
-    "c": "gcc -std=c11 -Wall -Wextra -g -fexec-charset=UTF-8 $fileName -o $workspaceRoot\\$fileNameWithoutExt.exe && $workspaceRoot\\$fileNameWithoutExt.exe & del $workspaceRoot\\$fileNameWithoutExt.exe"
+    "c": "gcc -std=c11 -Wall -Wextra -g -fexec-charset=UTF-8 $fileName -o $workspaceRoot\\$fileNameWithoutExt.exe && $workspaceRoot\\$fileNameWithoutExt.exe & del $workspaceRoot\\$fileNameWithoutExt.exe",
+    "java": "chcp 65001>nul && java -cp \"C:\\Users\\linze\\.java-libs\\*\" -Dstdout.encoding=UTF-8 $fileName"
   },
+  "java.project.referencedLibraries": ["C:/Users/linze/.java-libs/*.jar"],
+  "java.import.generatesMetadataFilesAtProjectRoot": false,
   "C_Cpp.default.compilerPath": "C:\\Users\\linze\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\mingw64\\bin\\gcc.exe",
   "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
   "C_Cpp.default.cStandard": "c11"
