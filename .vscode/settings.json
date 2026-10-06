@@ -4,6 +4,12 @@
   "editor.codeActionsOnSave": { "source.fixAll.eslint": "explicit" },
   "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[python]": { "editor.defaultFormatter": "charliermarsh.ruff" },
+  "[c]": { "editor.defaultFormatter": "ms-vscode.cpptools" },
+  "go.toolsEnvVars": { "CGO_ENABLED": "0" },
+  "[go]": { "editor.defaultFormatter": "golang.go" },
+  "[java]": { "editor.defaultFormatter": "redhat.java" },
+  "ruff.lineLength": 100,
   "eslint.validate": ["javascript", "typescript"],
   "eslint.useFlatConfig": true,
   "deno.enable": true,
@@ -20,5 +26,6 @@
   "java.import.generatesMetadataFilesAtProjectRoot": false,
   "C_Cpp.default.compilerPath": "C:\\Users\\linze\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\mingw64\\bin\\gcc.exe",
   "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
-  "C_Cpp.default.cStandard": "c11"
+  "C_Cpp.default.cStandard": "c11",
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 100 }"
 }
