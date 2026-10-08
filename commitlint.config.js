@@ -53,7 +53,12 @@ const algorithmTypes = [
   'AI',
   'Git',
   'BE',
-  'scenario'
+  'Scenario',
+  'System',
+  'DB',
+  'MQ',
+  'Lang',
+  'Design'
 ];
 
 // 生成包含算法类型的 scope 选项
