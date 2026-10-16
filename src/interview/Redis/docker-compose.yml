@@ -1,0 +1,21 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: redis-practice
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./redis-data-t:/data
+    command:
+      - redis-server
+      - --appendonly
+      - 'yes'
+      - --requirepass
+      - '123456'
+    healthcheck:
+      test: ['CMD', 'redis-cli', '-a', '123456', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
