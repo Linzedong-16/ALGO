@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"go-redis-practice/pkg"
 	"time"
 
 	"github.com/redis/go-redis/v9"
@@ -31,4 +32,14 @@ func Connect() *redis.Client {
 
 func main() {
 	DB = Connect()
+
+	// pkg.RedisStringOperations(DB)
+	// pkg.RedisListOperations(DB)
+	// pkg.RedisHash(DB)
+	// pkg.RedisSet(DB)
+	// pkg.RedisZSet(DB)
+
+	pkg.RedisPipelineAndAtomicty(DB)
+	pkg.RedisLuaScript(DB)
+	pkg.RedisWatch(DB)
 }
